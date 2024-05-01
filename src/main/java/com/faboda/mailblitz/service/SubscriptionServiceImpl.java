@@ -1,2 +1,10 @@
-package com.faboda.mailblitz.service;public class SubscriptionServiceImpl {
+package com.faboda.mailblitz.service;
+
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+@Service
+@RequiredArgsConstructor
+public class SubscriptionServiceImpl {
+
 }

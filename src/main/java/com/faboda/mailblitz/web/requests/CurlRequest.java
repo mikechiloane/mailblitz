@@ -1,2 +1,9 @@
-package com.faboda.mailblitz.web.requests;public class CurlRequest {
+package com.faboda.mailblitz.web.requests;
+
+import lombok.Getter;
+
+@Getter
+public class CurlRequest {
+    private  String curl;
+
 }

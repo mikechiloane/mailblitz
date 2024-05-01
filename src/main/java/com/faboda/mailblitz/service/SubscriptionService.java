@@ -1,2 +1,5 @@
-package com.faboda.mailblitz.service;public interface SubscriptionService {
+package com.faboda.mailblitz.service;
+
+public interface SubscriptionService {
+
 }
