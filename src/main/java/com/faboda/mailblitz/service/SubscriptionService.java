@@ -6,4 +6,6 @@ import com.faboda.mailblitz.web.response.CurlResponse;
 public interface SubscriptionService {
 
   CurlResponse addMail(CurlRequest curlRequest);
+
+  void subscribeUser(String email);
 }
