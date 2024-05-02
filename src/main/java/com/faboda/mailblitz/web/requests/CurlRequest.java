@@ -1,9 +1,9 @@
 package com.faboda.mailblitz.web.requests;
 
-import lombok.Getter;
+import lombok.Data;
 
-@Getter
+@Data
 public class CurlRequest {
-    private  String curl;
-
+  private String curl;
+  private String valueVariable;
 }

@@ -16,15 +16,16 @@ public class CurlASTMutator {
   public static ASTNode curlToAST(String curlString) {
     CurlTokenizer curlTokenizer = new StandardCurlTokenizer(curlString);
     List<String> tokens = curlTokenizer.getTokens();
-      return CurlASTBuilder.buildAST(tokens);
+    return CurlASTBuilder.buildAST(tokens);
   }
 
-  public static ASTNode setASTData(ASTNode astNode, String dataKey, String dataValue) {
+  public static void setASTData(ASTNode astNode, String dataKey, String dataValue) {
     List<ASTNode> dataNodes =
         new java.util.ArrayList<>(
             astNode.getChildren().stream()
-                .filter(astNode1 -> astNode1.getType().equals(NodeType.DATA))
+                .filter(astNode1 -> astNode1.getType().equals(NodeType.DATAPAIR))
                 .toList());
+
     ASTNode targetNode =
         dataNodes.stream().filter(node -> node.getKey().equals(dataKey)).findFirst().get();
     int targetIndex = dataNodes.indexOf(targetNode);
@@ -32,6 +33,5 @@ public class CurlASTMutator {
     dataNodes.set(targetIndex, targetNode);
     astNode.resetChildren();
     astNode.addChildren(dataNodes);
-    return astNode;
   }
 }
