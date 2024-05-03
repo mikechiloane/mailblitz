@@ -31,13 +31,14 @@ public class SubscriptionServiceImpl implements SubscriptionService {
 
   @Override
   public void subscribeUser(String email) {
-    Optional<ASTNodeRef> curlASTRequest = astNodeRefRepository.findById("6633c3af1b651e7b7b1c8c02");
+    System.out.println("Subscribing user");
+    Optional<ASTNodeRef> curlASTRequest = astNodeRefRepository.findById("6634e409c2578734eb310a63");
     if (curlASTRequest.isPresent()) {
+      System.out.println("Curl AST Request found");
       ASTNodeRef astNodeRef = curlASTRequest.get();
       ASTNode astNode = buildASTNodeForRef(astNodeRef.getRef());
       ASTHttpClientWrapper astHttpClientWrapper = new ASTHttpClientWrapper();
       try {
-        System.out.println(astNode);
         String response = astHttpClientWrapper.send(astNode);
         System.out.println(response);
       } catch (IOException e) {
@@ -58,9 +59,11 @@ public class SubscriptionServiceImpl implements SubscriptionService {
             child.setParent(parent);
             parent.addChild(child);
           });
-
+      System.out.println(parent);
       return parent;
+
     }
+    System.out.println("ASTNode not found");
     return null;
   }
 }
