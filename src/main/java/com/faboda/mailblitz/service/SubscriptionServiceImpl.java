@@ -59,11 +59,9 @@ public class SubscriptionServiceImpl implements SubscriptionService {
             child.setParent(parent);
             parent.addChild(child);
           });
-      System.out.println(parent);
       return parent;
 
     }
-    System.out.println("ASTNode not found");
     return null;
   }
 }
